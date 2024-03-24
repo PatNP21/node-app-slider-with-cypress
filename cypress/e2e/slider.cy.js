@@ -16,3 +16,18 @@ describe('Swiper Gallery Test', function () {
     cy.get('.swiper-slide-active').should('contain', 'Paris');
   });
 });
+
+//Test przewijania slajdów
+describe('Switching the photo Test', function () {
+  it('Checks if another slide will shown after clickng any navigation button for all cases', function () {
+    cy.visit('http://localhost:3000');
+    cy.wait(2000);
+    cy.get('.swiper-button-next').click({ force: true });
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'London');
+    cy.wait(2000);
+    cy.get('.swiper-button-prev').click({ force: true });
+    cy.wait(2000);
+    cy.get('.swiper-slide-active').should('contain', 'Rome');
+  })
+})
